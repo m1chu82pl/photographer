@@ -1,7 +1,8 @@
 const CACHE_NAME = "ver.01";
-const urlsToCache = ["index.html", "offline.html"];
+const urlsToCache = ["offline.html", "../src/App.js", '../src/App.css', '../src/index.js', '../src/index.css', '../src/logo.svg'];
 
 const self = this;
+
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -13,11 +14,12 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
+  console.log(event.request)
    event.respondWith(
      caches.match(event.request)
      .then(() => {
        return fetch(event.request)
-       .catch(() => caches.match('./offline.html'))
+       .catch(() => caches.match('offline.html'))
      })
    )
 });
