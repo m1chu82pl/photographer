@@ -1,13 +1,7 @@
 const CACHE_NAME = "ver.01";
 const urlsToCache = [
-  "../offline/offline.html",
-  'index.js',
-  "logo512.png",
-  "../src/App.js",
-  "../src/App.css",
-  "../src/index.js",
-  "../src/index.css",
-  "../src/logo.svg",
+  "offline.html",
+  'logo192.png'
 ];
 
 const self = this;
@@ -25,7 +19,7 @@ self.addEventListener("fetch", (event) => {
   console.log(event.request);
   event.respondWith(
     caches.match(event.request).then(() => {
-      return fetch(event.request).catch(() => caches.match("offline.html"));
+      return fetch(event.request).catch(() => caches.match("/offline.html"));
     })
   );
 });
