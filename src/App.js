@@ -12,7 +12,7 @@ useEffect(() => {
     return messaging.getToken();
   })
   .then((token) => {
-    console.log(token);
+    console.log('token: ', token);
   })
   .catch((error) => console.log(error))
 })
