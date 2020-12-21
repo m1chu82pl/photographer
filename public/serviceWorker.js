@@ -39,5 +39,3 @@ self.addEventListener("activate", (event) => {
     )
   );
 });
-
-// https://youtu.be/IaJqMcOMuDM?t=2255

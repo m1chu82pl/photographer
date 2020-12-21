@@ -4,9 +4,9 @@ import './App.css';
 import firebase from './firebase'; 
 
 function App() {
+  const messaging = firebase.messaging();
 
 useEffect(() => {
-  const messaging = firebase.messaging();
   messaging.requestPermission().then(()=>{
     console.log('have permission');
     return messaging.getToken();
