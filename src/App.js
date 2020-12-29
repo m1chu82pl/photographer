@@ -1,22 +1,10 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import logo from './logo.svg';
 import './App.css';
-import firebase from './firebase'; 
+import { askForPermissioToReceiveNotifications } from './push-notification';
 
 function App() {
-  const messaging = firebase.messaging();
-
-useEffect(() => {
-  messaging.requestPermission().then(()=>{
-    console.log('have permission');
-    return messaging.getToken();
-  })
-  .then((token) => {
-    console.log('token: ', token);
-  })
-  .catch((error) => console.log(error))
-})
-
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -32,6 +20,9 @@ useEffect(() => {
         >
           Learn React
         </a>
+      <button onClick={askForPermissioToReceiveNotifications} >
+      Click here to receive notifications
+    </button>
       </header>
     </div>
   );
